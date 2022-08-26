@@ -12,7 +12,6 @@ const callToApi = () => {
           status: character.alive,
         };
       });
-      console.log(cleanData);
       return cleanData;
     });
 };

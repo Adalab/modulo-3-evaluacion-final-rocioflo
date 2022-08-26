@@ -5,12 +5,18 @@ import '../styles/App.css';
 import callToApi from '../services/api';
 
 //hooks etc.
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [characterData, setCharacterData] = useState([]);
-  callToApi();
 
+  useEffect(() => {
+    callToApi().then((data) => {
+      setCharacterData(data);
+    });
+  }, []);
+
+  console.log(characterData);
   return (
     <div className="App">
       <header></header>
