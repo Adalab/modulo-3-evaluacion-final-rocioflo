@@ -1,19 +1,20 @@
-// Fichero src/services/api.js
 const callToApi = () => {
-  // Llamamos a la API
-  // return fetch('https://swapi.dev/api/people/5') // Este 5 es el id de Leia Skywalker
-  //   .then((response) => response.json())
-  //   .then((response) => {
-  //     // Cuando responde la API podemos limpiar los datos aquí
-  //     const result = {
-  //       name: response.name,
-  //       birthYear: response.birth_year,
-  //       height: response.height,
-  //       mass: response.mass,
-  //       eyeColor: response.eye_color,
-  //     };
-  //     return result;
-  //   });
+  return fetch('http://hp-api.herokuapp.com/api/characters')
+    .then((response) => response.json())
+    .then((data) => {
+      const cleanData = data.map((character) => {
+        return {
+          name: character.name,
+          species: character.species,
+          gender: character.gender,
+          image: character.image,
+          house: character.house,
+          status: character.alive,
+        };
+      });
+      console.log(cleanData);
+      return cleanData;
+    });
 };
 
 export default callToApi;

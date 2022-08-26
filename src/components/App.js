@@ -1,8 +1,16 @@
+//styles
 import '../styles/App.css';
-// import callToApi from '../services/api';
-//import PropTypes from 'prop-types';
+
+//components
+import callToApi from '../services/api';
+
+//hooks etc.
+import { useState } from 'react';
 
 function App() {
+  const [characterData, setCharacterData] = useState([]);
+  callToApi();
+
   return (
     <div className="App">
       <header></header>
