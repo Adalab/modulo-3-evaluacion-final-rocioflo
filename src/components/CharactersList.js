@@ -1,6 +1,6 @@
-function CharactersList({ characterData }) {
+function CharactersList({ filteredCharacterList }) {
   const renderCharacterList = () => {
-    const characterList = characterData.map((character, index) => {
+    const characterList = filteredCharacterList.map((character, index) => {
       return (
         <li className="character-item" key={index}>
           <img
