@@ -1,3 +1,5 @@
+@import 'variables';
+
 .characters-list {
   list-style: none;
   display: flex;
@@ -16,5 +18,30 @@
     & .character-name {
       font-size: 1.1rem;
     }
+  }
+}
+
+.character-detail-page {
+  padding: 1rem;
+  width: 100vw;
+
+  & .link-back {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    background-color: $fourthColor;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+  }
+
+  & .character-detail {
+    display: flex;
+    width: 50rem;
+    padding: 2.5rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    gap: 1rem;
+    font-size: 1.3rem;
+    background-color: $mainColor;
   }
 }

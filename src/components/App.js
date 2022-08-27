@@ -5,49 +5,93 @@ import '../styles/App.scss';
 import callToApi from '../services/api';
 import CharactersList from './CharactersList';
 import Filters from './Filters';
+import CharacterDetail from './CharacterDetail';
 
 //hooks etc.
 import { useState, useEffect } from 'react';
+import {
+  Routes,
+  Route,
+  pathname,
+  matchPath,
+  useLocation,
+} from 'react-router-dom';
 
 function App() {
   const [characterData, setCharacterData] = useState([]);
-  const [filteredData, setFilteredData] = useState({
-    name: '',
-    species: '',
-    gender: '',
-    house: '',
-    status: '',
-  });
-  const [filteredCharacterList, setFilteredCharacterList] = useState([]);
+  const [filteredByName, setFilteredByName] = useState('');
+  const [filteredByHouse, setFilteredByHouse] = useState('Gryffindor');
+
+  const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
     callToApi().then((data) => {
       setCharacterData(data);
-      setFilteredCharacterList(data);
     });
   }, []);
 
-  const handleFilteredData = (inputId, inputValue) => {
-    setFilteredData({ ...filteredData, [inputId]: inputValue });
+  //Filters
+  const handleFilterByName = (inputValue) => {
+    setFilteredByName(inputValue);
+  };
 
-    const filteredCharacterList = characterData.filter((character) => {
-      return character.name.toLowerCase().includes(inputValue.toLowerCase());
+  const handleFilterByHouse = (inputValue) => {
+    setFilteredByHouse(inputValue);
+    handleFilters();
+  };
+
+  const handleFilters = (nameValue) => {
+    const filteredCharacters = characterData.filter((character) => {
+      return (
+        character.name.includes(nameValue) &&
+        character.house === filteredByHouse
+      );
     });
 
-    setFilteredCharacterList(filteredCharacterList);
+    return setFilteredList(filteredCharacters);
   };
+
+  //Characters in detail
+
+  const { pathname } = useLocation();
+  const routeData = matchPath('/CharacterDetail/:id', pathname);
+
+  const characterFound = routeData !== null ? routeData.params.id : null;
 
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <h1>:)</h1>
+      </header>
       <main>
-        <Filters
-          filteredData={filteredData}
-          handleFilteredData={handleFilteredData}
-        />
-        <ul className="characters-list">
-          <CharactersList filteredCharacterList={filteredCharacterList} />
-        </ul>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Filters
+                  handleFilters={handleFilters}
+                  handleFilterByName={handleFilterByName}
+                  filteredByName={filteredByName}
+                  handleFilterByHouse={handleFilterByHouse}
+                />
+                <CharactersList
+                  characterData={characterData}
+                  filteredList={filteredList}
+                />
+              </>
+            }
+          />
+          <Route
+            path={`/CharacterDetail/${characterFound}`}
+            element={
+              <CharacterDetail
+                characterData={characterData}
+                characterFound={characterFound}
+              />
+            }
+          />
+        </Routes>
       </main>
     </div>
   );

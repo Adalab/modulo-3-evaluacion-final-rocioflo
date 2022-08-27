@@ -1,23 +1,14 @@
-function CharactersList({ filteredCharacterList }) {
-  const renderCharacterList = () => {
-    const characterList = filteredCharacterList.map((character, index) => {
-      return (
-        <li className="character-item" key={index}>
-          <img
-            src={character.image}
-            className="character-pic"
-            alt={`This is ${character.name}`}
-          />
-          <p className="character-name">{character.name}</p>
-          <p className="character-species">{character.species}</p>
-        </li>
-      );
-    });
+import CharactersListItem from './CharactersListItem';
 
-    return characterList;
-  };
-
-  return renderCharacterList();
+function CharactersList({ characterData, filteredList }) {
+  return (
+    <ul className="characters-list">
+      <CharactersListItem
+        characterData={characterData}
+        filteredList={filteredList}
+      />
+    </ul>
+  );
 }
 
 export default CharactersList;

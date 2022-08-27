@@ -1,21 +1,20 @@
 import FilterByName from './FilterByName';
+import FilterByHouse from './FilterByHouse';
 
-function Filters({ handleFilteredData, filteredData, filteredCharacterList }) {
+function Filters({
+  handleFilterByHouse,
+  handleFilters,
+  filteredByName,
+  handleFilterByName,
+}) {
   return (
     <form>
       <FilterByName
-        handleFilteredData={handleFilteredData}
-        filteredData={filteredData}
+        handleFilters={handleFilters}
+        handleFilterByName={handleFilterByName}
+        filteredByName={filteredByName}
       />
-      <label>
-        Selecciona la casa:
-        <select>
-          <option>Gryffindor</option>
-          <option>Ravenclaw</option>
-          <option>Hufflepuff</option>
-          <option>Slytherin</option>
-        </select>
-      </label>
+      <FilterByHouse handleFilterByHouse={handleFilterByHouse} />
     </form>
   );
 }

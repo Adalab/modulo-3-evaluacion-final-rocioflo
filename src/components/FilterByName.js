@@ -1,14 +1,14 @@
-function FilterByName({ handleFilteredData, filteredData }) {
+function FilterByName({ handleFilterByName, filteredByName, handleFilters }) {
   const handleInput = (ev) => {
-    const inputId = ev.target.id;
     const inputValue = ev.target.value;
-    handleFilteredData(inputId, inputValue);
+    handleFilterByName(inputValue);
+    handleFilters(inputValue);
   };
 
   return (
     <label>
       Busca por personaje:
-      <input id="name" onChange={handleInput} value={filteredData.name} />
+      <input id="name" onChange={handleInput} value={filteredByName} />
     </label>
   );
 }

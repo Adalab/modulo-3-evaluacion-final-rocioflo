@@ -7,9 +7,11 @@ const callToApi = () => {
           name: character.name,
           species: character.species.toUpperCase(),
           gender: character.gender,
-          image: character.image,
+          image:
+            character.image ||
+            'https://via.placeholder.com/210x295/ffffff/666666/?text=Evanesco!',
           house: character.house,
-          status: character.alive,
+          status: character.alive === true ? 'alive' : 'dead',
         };
       });
       return cleanData;
