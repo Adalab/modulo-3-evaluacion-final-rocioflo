@@ -1,8 +1,9 @@
 //styles
-import '../styles/App.css';
+import '../styles/App.scss';
 
 //components
 import callToApi from '../services/api';
+import CharactersList from './CharactersList';
 
 //hooks etc.
 import { useState, useEffect } from 'react';
@@ -32,11 +33,7 @@ function App() {
           </label>
         </form>
         <ul className="characters-list">
-          <li>
-            <img className="character-pic" />
-            <p className="character-name"></p>
-            <p className="character-species"></p>
-          </li>
+          <CharactersList characterData={characterData} />
         </ul>
       </main>
     </div>

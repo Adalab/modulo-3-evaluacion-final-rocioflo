@@ -5,7 +5,7 @@ const callToApi = () => {
       const cleanData = data.map((character) => {
         return {
           name: character.name,
-          species: character.species,
+          species: character.species.toUpperCase(),
           gender: character.gender,
           image: character.image,
           house: character.house,

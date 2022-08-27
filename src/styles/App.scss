@@ -1,0 +1,20 @@
+.characters-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  & .character-item {
+    padding: 1rem;
+    border: solid black 2px;
+    background-color: gainsboro;
+
+    & .character-pic {
+      width: 13rem;
+    }
+
+    & .character-name {
+      font-size: 1.1rem;
+    }
+  }
+}
