@@ -27,11 +27,14 @@ function App() {
     status: '',
   });
   const [filteredList, setFilteredList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     callToApi().then((data) => {
       setCharacterData(data);
       setFilteredList(data);
+      setIsLoading(false);
     });
   }, []);
 
@@ -80,8 +83,8 @@ function App() {
               <>
                 <Filters handleFilters={handleFilters} filters={filters} />
                 <CharactersList
-                  characterData={characterData}
                   filteredList={filteredList}
+                  isLoading={isLoading}
                 />
               </>
             }

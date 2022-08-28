@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function CharactersListItem({ filteredList, characterData }) {
+function CharactersListItem({ filteredList }) {
   console.log(filteredList);
   const renderCharacterList = () => {
     const characterList = filteredList.map((character, index) => {
@@ -22,7 +22,6 @@ function CharactersListItem({ filteredList, characterData }) {
         </Link>
       );
     });
-
     return characterList;
   };
 
