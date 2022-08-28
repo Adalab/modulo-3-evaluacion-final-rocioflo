@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
 
 function CharactersListItem({ filteredList, characterData }) {
+  console.log(filteredList);
   const renderCharacterList = () => {
-    const characterList = characterData.map((character, index) => {
+    const characterList = filteredList.map((character, index) => {
       return (
-        <Link to={`/characterDetail/${index}`} className="character-item-link">
-          <li className="character-item" key={index}>
+        <Link
+          to={`/characterDetail/${index}`}
+          key={index}
+          className="character-item-link"
+        >
+          <li className="character-item">
             <img
               src={character.image}
               className="character-pic"

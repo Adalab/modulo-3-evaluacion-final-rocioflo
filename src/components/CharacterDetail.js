@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-function CharacterDetail({ characterData, characterFound }) {
-  const characterDetail = characterData[characterFound];
+function CharacterDetail({ filteredList, characterFound }) {
+  const characterDetail = filteredList[characterFound];
 
   return (
     <div className="character-detail-page">

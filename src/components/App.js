@@ -19,43 +19,52 @@ import {
 
 function App() {
   const [characterData, setCharacterData] = useState([]);
-  const [filteredByName, setFilteredByName] = useState('');
-  const [filteredByHouse, setFilteredByHouse] = useState('Gryffindor');
-
+  const [filters, setFilters] = useState({
+    name: '',
+    species: '',
+    gender: 'male',
+    house: 'Gryffindor',
+    status: '',
+  });
   const [filteredList, setFilteredList] = useState([]);
 
   useEffect(() => {
     callToApi().then((data) => {
       setCharacterData(data);
+      setFilteredList(data);
     });
   }, []);
 
   //Filters
-  const handleFilterByName = (inputValue) => {
-    setFilteredByName(inputValue);
-  };
 
-  const handleFilterByHouse = (inputValue) => {
-    setFilteredByHouse(inputValue);
-    handleFilters();
-  };
+  const handleFilters = (ev) => {
+    ev.preventDefault();
+    console.log(ev.target.value);
+    console.log(ev.target.id);
 
-  const handleFilters = (nameValue) => {
-    const filteredCharacters = characterData.filter((character) => {
+    const id = ev.target.id;
+    const value = ev.target.value;
+    const newFilters = {
+      ...filters,
+      [id]: value,
+    };
+
+    const filteredData = characterData.filter((character) => {
       return (
-        character.name.includes(nameValue) &&
-        character.house === filteredByHouse
+        character.name.toLowerCase().includes(newFilters.name.toLowerCase()) &&
+        character.house === newFilters.house &&
+        character.gender === newFilters.gender
       );
     });
 
-    return setFilteredList(filteredCharacters);
+    setFilters({ ...filters, [id]: value });
+    setFilteredList(filteredData);
   };
 
   //Characters in detail
 
   const { pathname } = useLocation();
   const routeData = matchPath('/CharacterDetail/:id', pathname);
-
   const characterFound = routeData !== null ? routeData.params.id : null;
 
   return (
@@ -69,12 +78,7 @@ function App() {
             path="/"
             element={
               <>
-                <Filters
-                  handleFilters={handleFilters}
-                  handleFilterByName={handleFilterByName}
-                  filteredByName={filteredByName}
-                  handleFilterByHouse={handleFilterByHouse}
-                />
+                <Filters handleFilters={handleFilters} filters={filters} />
                 <CharactersList
                   characterData={characterData}
                   filteredList={filteredList}
@@ -86,7 +90,7 @@ function App() {
             path={`/CharacterDetail/${characterFound}`}
             element={
               <CharacterDetail
-                characterData={characterData}
+                filteredList={filteredList}
                 characterFound={characterFound}
               />
             }
