@@ -64,6 +64,19 @@ function App() {
     setFilteredList(filteredData);
   };
 
+  //Reset button
+
+  const handleReset = () => {
+    setFilters({
+      name: '',
+      species: '',
+      gender: 'male',
+      house: 'Gryffindor',
+      status: '',
+    });
+    setFilteredList(characterData);
+  };
+
   //Characters in detail
 
   const { pathname } = useLocation();
@@ -73,7 +86,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Lalala</h1>
+        <h1>¡Accio personajes!</h1>
       </header>
       <main>
         <Routes>
@@ -81,7 +94,11 @@ function App() {
             path="/"
             element={
               <>
-                <Filters handleFilters={handleFilters} filters={filters} />
+                <Filters
+                  handleFilters={handleFilters}
+                  filters={filters}
+                  handleReset={handleReset}
+                />
                 <CharactersList
                   filteredList={filteredList}
                   isLoading={isLoading}
