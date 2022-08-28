@@ -1,5 +1,6 @@
 import FilterByName from './FilterByName';
 import FilterByHouse from './FilterByHouse';
+import FilterByGender from './FilterByGender';
 
 function Filters({
   handleFilterByHouse,
@@ -8,13 +9,14 @@ function Filters({
   handleFilterByName,
 }) {
   return (
-    <form>
+    <form className="filters-form">
       <FilterByName
         handleFilters={handleFilters}
         handleFilterByName={handleFilterByName}
         filteredByName={filteredByName}
       />
       <FilterByHouse handleFilterByHouse={handleFilterByHouse} />
+      <FilterByGender />
     </form>
   );
 }

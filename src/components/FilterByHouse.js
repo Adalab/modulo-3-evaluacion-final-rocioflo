@@ -1,13 +1,13 @@
-function FilterByHouse({ handleFilterByHouse }) {
+function FilterByHouse({ handleFilterByHouse, handleFilters }) {
   const handleSelect = (ev) => {
     const inputValue = ev.target.value;
-
     handleFilterByHouse(inputValue);
+    handleFilters();
   };
 
   return (
     <label>
-      Selecciona la casa:
+      Selecciona la casa
       <select id="house" onChange={handleSelect}>
         <option value="Gryffindor">Gryffindor</option>
         <option value="Ravenclaw">Ravenclaw</option>

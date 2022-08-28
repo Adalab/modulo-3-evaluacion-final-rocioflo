@@ -10,7 +10,7 @@ const callToApi = () => {
           image:
             character.image ||
             'https://via.placeholder.com/210x295/ffffff/666666/?text=Evanesco!',
-          house: character.house,
+          house: character.house || 'none',
           status: character.alive === true ? 'alive' : 'dead',
         };
       });

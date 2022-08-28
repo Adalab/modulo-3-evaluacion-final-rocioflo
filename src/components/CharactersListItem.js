@@ -4,7 +4,7 @@ function CharactersListItem({ filteredList, characterData }) {
   const renderCharacterList = () => {
     const characterList = characterData.map((character, index) => {
       return (
-        <Link to={`/characterDetail/${index}`}>
+        <Link to={`/characterDetail/${index}`} className="character-item-link">
           <li className="character-item" key={index}>
             <img
               src={character.image}
