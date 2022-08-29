@@ -2,8 +2,12 @@
 @import 'variables';
 
 .character-detail-page {
-  padding: 1rem;
   width: 100vw;
+  padding: 0.5rem;
+
+  @media all and (min-width: 1024px) {
+    padding: 1rem;
+  }
 
   & .link-back {
     text-decoration: none;
@@ -13,20 +17,48 @@
     padding: 0.7rem;
     border-radius: 0.8rem;
     border: black solid 2px;
+    margin-left: 1rem;
+
+    &:hover {
+      background-color: $secondColor;
+    }
   }
 
   & .character-detail {
-    display: flex;
-    width: 50rem;
-    padding: 2.5rem;
-    margin: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 20rem;
     border-radius: 1rem;
-    gap: 1rem;
-    font-size: 1.3rem;
+    padding: 1rem;
+    margin: 0.2rem;
     background-color: $mainColor;
+
+    @media all and (min-width: 1024px) {
+      width: 50rem;
+      padding: 2.5rem;
+      margin: 1rem;
+      gap: 1rem;
+      font-size: 1.3rem;
+    }
 
     & .character-detail-pic {
       max-width: 10rem;
+      border-radius: 10px;
+    }
+
+    & .character-detail-info {
+      font-family: $mainFont;
+      grid-column: 2/2;
+      margin-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-top: 1rem;
+
+      & .info-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
     }
   }
 

@@ -33,8 +33,8 @@ function CharacterDetail({ characterFound, characterData }) {
           alt={`This is ${characterDetail.name}`}
           className="character-detail-pic"
         />
-        <div>
-          <h2>{characterDetail.name}</h2>
+        <div className="character-detail-info">
+          <h2 className="info-name">{characterDetail.name}</h2>
           <p>Status: {characterDetail.status}</p>
           <p>Species: {characterDetail.species}</p>
           <p>Gender: {characterDetail.gender}</p>
