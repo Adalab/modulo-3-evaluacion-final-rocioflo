@@ -1,0 +1,13 @@
+@import 'reset';
+@import 'variables';
+
+.filters-form {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 10px;
+  background-color: $mainColor;
+  min-width: 90vw;
+}

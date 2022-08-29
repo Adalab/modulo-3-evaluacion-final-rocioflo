@@ -6,6 +6,7 @@ import callToApi from '../services/api';
 import CharactersList from './CharactersList';
 import Filters from './Filters';
 import CharacterDetail from './CharacterDetail';
+import Header from './Header';
 
 //hooks etc.
 import { useState, useEffect } from 'react';
@@ -33,7 +34,7 @@ function App() {
     setIsLoading(true);
     callToApi().then((data) => {
       setCharacterData(data);
-      setFilteredList(data);
+      setFilteredList(data.sort((a, b) => a.name.localeCompare(b.name)));
       setIsLoading(false);
     });
   }, []);
@@ -85,9 +86,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>¡Accio personajes!</h1>
-      </header>
+      <Header />
       <main>
         <Routes>
           <Route

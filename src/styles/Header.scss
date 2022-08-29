@@ -1,0 +1,28 @@
+@import 'reset';
+@import 'variables';
+
+.header {
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media all and (min-width: 768px) {
+  }
+
+  @media all and (min-width: 1024px) {
+  }
+
+  & .header-title {
+    font-size: 3rem;
+    font-family: $headerFont;
+    margin-left: 1rem;
+  }
+
+  & .header-image {
+    position: relative;
+    z-index: -1;
+    top: 12rem;
+  }
+}

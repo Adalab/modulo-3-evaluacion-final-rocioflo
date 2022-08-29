@@ -9,7 +9,7 @@ const callToApi = () => {
           gender: character.gender,
           image:
             character.image ||
-            'https://via.placeholder.com/210x295/ffffff/666666/?text=Evanesco!',
+            'https://via.placeholder.com/210x295/ffffff/666666/?text=¡Evanesco!',
           house: character.house || 'none',
           status: character.alive === true ? 'alive' : 'dead',
         };

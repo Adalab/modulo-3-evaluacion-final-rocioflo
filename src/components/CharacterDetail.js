@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import '../styles/CharacterDetail.scss';
+
 function CharacterDetail({ filteredList, characterFound }) {
   const characterDetail = filteredList[characterFound];
 

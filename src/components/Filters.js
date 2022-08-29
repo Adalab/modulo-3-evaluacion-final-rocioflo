@@ -3,6 +3,8 @@ import FilterByHouse from './FilterByHouse';
 import FilterByGender from './FilterByGender';
 import ResetButton from './ResetButton';
 
+import '../styles/Filters.scss';
+
 function Filters({ handleFilters, filters, handleReset }) {
   return (
     <form className="filters-form">
