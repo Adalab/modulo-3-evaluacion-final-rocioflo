@@ -101,6 +101,7 @@ function App() {
                 <CharactersList
                   filteredList={filteredList}
                   isLoading={isLoading}
+                  filters={filters}
                 />
               </>
             }
