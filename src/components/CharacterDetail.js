@@ -2,14 +2,25 @@ import { Link } from 'react-router-dom';
 
 import '../styles/CharacterDetail.scss';
 
-function CharacterDetail({ filteredList, characterFound, characterData }) {
+function CharacterDetail({ characterFound, characterData }) {
   const characterObjectFound = characterData.filter((character) => {
     return character.id === characterFound;
   });
 
-  const characterDetail = characterObjectFound[0];
+  if (characterObjectFound.length === 0) {
+    return (
+      <div className="character-detail-page">
+        <Link to="/" className="link-back">
+          Back to list
+        </Link>
+        <div className="character-detail">
+          <p>No hay personajes en esa url, pillín</p>
+        </div>
+      </div>
+    );
+  }
 
-  console.log(characterDetail);
+  const characterDetail = characterObjectFound[0];
 
   return (
     <div className="character-detail-page">

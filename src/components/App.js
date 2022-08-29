@@ -3,6 +3,7 @@ import '../styles/App.scss';
 
 //components
 import callToApi from '../services/api';
+import localStorage from '../services/localStorage';
 import CharactersList from './CharactersList';
 import Filters from './Filters';
 import CharacterDetail from './CharacterDetail';
@@ -19,7 +20,9 @@ import {
 } from 'react-router-dom';
 
 function App() {
-  const [characterData, setCharacterData] = useState([]);
+  const [characterData, setCharacterData] = useState(
+    localStorage.get('Character list', [])
+  );
   const [filters, setFilters] = useState({
     name: '',
     species: '',
@@ -27,17 +30,24 @@ function App() {
     house: 'Gryffindor',
     status: '',
   });
-  const [filteredList, setFilteredList] = useState([]);
+  const [filteredList, setFilteredList] = useState(
+    characterData.sort((a, b) => a.name.localeCompare(b.name))
+  );
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    callToApi().then((data) => {
-      setCharacterData(data);
-      setFilteredList(data.sort((a, b) => a.name.localeCompare(b.name)));
-      setIsLoading(false);
-    });
+    if (characterData === []) {
+      setIsLoading(true);
+      callToApi().then((data) => {
+        setCharacterData(data);
+        setIsLoading(false);
+      });
+    }
   }, []);
+
+  //Local Storage
+
+  localStorage.set('Character list', characterData);
 
   //Filters
 
@@ -80,7 +90,9 @@ function App() {
 
   const { pathname } = useLocation();
   const routeData = matchPath('/CharacterDetail/:id', pathname);
-  const characterFound = routeData !== null ? routeData.params.id : null;
+  const characterFound = routeData !== null ? routeData.params.id : pathname;
+
+  console.log(pathname);
 
   return (
     <div className="App">
@@ -108,7 +120,6 @@ function App() {
             path={`/CharacterDetail/${characterFound}`}
             element={
               <CharacterDetail
-                filteredList={filteredList}
                 characterFound={characterFound}
                 characterData={characterData}
               />
