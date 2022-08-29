@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.15dc55d4.css",
-    "main.js": "./static/js/main.7eb26fdb.js",
+    "main.css": "./static/css/main.87355cd3.css",
+    "main.js": "./static/js/main.2970d151.js",
+    "static/media/wand.jpg": "./static/media/wand.23dc97113a61c4c633e3.jpg",
     "index.html": "./index.html",
-    "main.15dc55d4.css.map": "./static/css/main.15dc55d4.css.map",
-    "main.7eb26fdb.js.map": "./static/js/main.7eb26fdb.js.map"
+    "main.87355cd3.css.map": "./static/css/main.87355cd3.css.map",
+    "main.2970d151.js.map": "./static/js/main.2970d151.js.map"
   },
   "entrypoints": [
-    "static/css/main.15dc55d4.css",
-    "static/js/main.7eb26fdb.js"
+    "static/css/main.87355cd3.css",
+    "static/js/main.2970d151.js"
   ]
 }
