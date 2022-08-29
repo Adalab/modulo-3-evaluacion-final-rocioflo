@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import placeholder from '../images/placeholder.jpg';
 
 const callToApi = () => {
   return fetch('http://hp-api.herokuapp.com/api/characters')
@@ -9,9 +10,7 @@ const callToApi = () => {
           name: character.name,
           species: character.species.toUpperCase(),
           gender: character.gender,
-          image:
-            character.image ||
-            'https://via.placeholder.com/210x295/ffffff/666666/?text=¡Evanesco!',
+          image: character.image || placeholder,
           house: character.house || 'none',
           status: character.alive === true ? 'alive' : 'dead',
           id: uuidv4(),
