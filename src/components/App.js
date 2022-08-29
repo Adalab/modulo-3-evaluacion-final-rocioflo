@@ -36,10 +36,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (characterData === []) {
+    if (characterData.length === 0) {
       setIsLoading(true);
       callToApi().then((data) => {
         setCharacterData(data);
+        setFilteredList(data.sort((a, b) => a.name.localeCompare(b.name)));
         setIsLoading(false);
       });
     }

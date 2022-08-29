@@ -17,6 +17,7 @@ const callToApi = () => {
           id: uuidv4(),
         };
       });
+      console.log(cleanData);
       return cleanData;
     });
 };
