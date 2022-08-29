@@ -19,9 +19,16 @@
     }
 
     & .header-title {
-      font-size: 3rem;
       font-family: $headerFont;
+      font-size: 2rem;
       margin-left: 1rem;
+      text-align: center;
+
+      @media all and (min-width: 1024px) {
+        font-size: 3rem;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+      }
     }
 
     & .header-image {

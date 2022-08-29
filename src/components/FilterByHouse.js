@@ -1,8 +1,13 @@
 function FilterByHouse({ handleFilters, filters }) {
   return (
-    <label>
-      Selecciona la casa
-      <select id="house" onChange={handleFilters} value={filters.house}>
+    <label className="filter-house-label">
+      Selecciona su casa
+      <select
+        id="house"
+        onChange={handleFilters}
+        value={filters.house}
+        className="filter-house-input"
+      >
         <option value="Gryffindor">Gryffindor</option>
         <option value="Ravenclaw">Ravenclaw</option>
         <option value="Hufflepuff">Hufflepuff</option>
