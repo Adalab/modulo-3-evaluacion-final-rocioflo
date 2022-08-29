@@ -4,12 +4,16 @@ import '../styles/CharacterList.scss';
 
 function CharactersList({ filteredList, isLoading, filters }) {
   if (isLoading) {
-    return <p>Juro solemnemente que estoy llamando a la Api</p>;
+    return (
+      <p className="loading-message">
+        Juro solemnemente que estoy llamando a la Api{' '}
+      </p>
+    );
   }
 
   if (filteredList.length === 0) {
     return (
-      <>
+      <div className="character-notfound-text">
         <p>
           No hemos encontrado un personaje con las siguientes características:
         </p>
@@ -19,7 +23,7 @@ function CharactersList({ filteredList, isLoading, filters }) {
           <li>Género: {filters.gender}</li>
         </ul>
         <p>Cambia tus criterios de búsqueda... ¡O invéntalo tú!</p>
-      </>
+      </div>
     );
   }
   return (
