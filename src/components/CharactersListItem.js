@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom';
 
 function CharactersListItem({ filteredList }) {
-  console.log(filteredList);
   const renderCharacterList = () => {
-    const characterList = filteredList.map((character, index) => {
+    const characterList = filteredList.map((character) => {
       return (
         <Link
-          to={`/characterDetail/${index}`}
-          key={index}
+          to={`/characterDetail/${character.id}`}
+          key={character.id}
           className="character-item-link"
         >
           <li className="character-item">

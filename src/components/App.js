@@ -43,8 +43,6 @@ function App() {
 
   const handleFilters = (ev) => {
     ev.preventDefault();
-    console.log(ev.target.value);
-    console.log(ev.target.id);
 
     const id = ev.target.id;
     const value = ev.target.value;
@@ -112,6 +110,7 @@ function App() {
               <CharacterDetail
                 filteredList={filteredList}
                 characterFound={characterFound}
+                characterData={characterData}
               />
             }
           />

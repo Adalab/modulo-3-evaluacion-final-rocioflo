@@ -2,8 +2,14 @@ import { Link } from 'react-router-dom';
 
 import '../styles/CharacterDetail.scss';
 
-function CharacterDetail({ filteredList, characterFound }) {
-  const characterDetail = filteredList[characterFound];
+function CharacterDetail({ filteredList, characterFound, characterData }) {
+  const characterObjectFound = characterData.filter((character) => {
+    return character.id === characterFound;
+  });
+
+  const characterDetail = characterObjectFound[0];
+
+  console.log(characterDetail);
 
   return (
     <div className="character-detail-page">

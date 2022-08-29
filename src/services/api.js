@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const callToApi = () => {
   return fetch('http://hp-api.herokuapp.com/api/characters')
     .then((response) => response.json())
@@ -12,6 +14,7 @@ const callToApi = () => {
             'https://via.placeholder.com/210x295/ffffff/666666/?text=¡Evanesco!',
           house: character.house || 'none',
           status: character.alive === true ? 'alive' : 'dead',
+          id: uuidv4(),
         };
       });
       return cleanData;
