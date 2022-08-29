@@ -27,10 +27,11 @@ function CharacterDetail({ characterFound, characterData }) {
       <Link to="/" className="link-back">
         Back to list
       </Link>
-      <div className="character-detail">
+      <div className={`character-detail ${characterDetail.house}`}>
         <img
           src={characterDetail.image}
           alt={`This is ${characterDetail.name}`}
+          className="character-detail-pic"
         />
         <div>
           <h2>{characterDetail.name}</h2>
@@ -39,6 +40,10 @@ function CharacterDetail({ characterFound, characterData }) {
           <p>Gender: {characterDetail.gender}</p>
           <p>Hogwarts House: {characterDetail.house}</p>
         </div>
+        {/* <img
+          src={require(`../images/${characterDetail.house}.png`)}
+          alt={`${characterDetail.house}'s emblem`}
+        /> */}
       </div>
     </div>
   );

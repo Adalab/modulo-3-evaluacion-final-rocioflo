@@ -7,11 +7,12 @@
 
   & .link-back {
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 1.2rem;
-    background-color: $fourthColor;
-    padding: 0.5rem;
+    background-color: $mainColor;
+    padding: 0.7rem;
     border-radius: 0.8rem;
+    border: black solid 2px;
   }
 
   & .character-detail {
@@ -23,5 +24,25 @@
     gap: 1rem;
     font-size: 1.3rem;
     background-color: $mainColor;
+
+    & .character-detail-pic {
+      max-width: 10rem;
+    }
+  }
+
+  & .Gryffindor {
+    background-color: $gryffindor;
+  }
+
+  & .Slytherin {
+    background-color: $slytherin;
+  }
+
+  & .Hufflepuff {
+    background-color: $hufflepuff;
+  }
+
+  & .Ravenclaw {
+    background-color: $ravenclaw;
   }
 }
