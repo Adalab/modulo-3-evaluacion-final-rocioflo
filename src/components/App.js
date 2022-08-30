@@ -80,7 +80,7 @@ function App() {
     setFilters({
       name: '',
       species: '',
-      gender: 'male',
+      gender: 'masculino',
       house: 'Gryffindor',
       status: '',
     });

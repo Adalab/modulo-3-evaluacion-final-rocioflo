@@ -10,9 +10,9 @@ function FilterByGender({ handleFilters, filters }) {
         value={filters.gender}
         className="filter-gender-input"
       >
-        <option value="male">Masculino</option>
-        <option value="female">Femenino</option>
-        <option value="non-binary">No binario</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+        <option value="No binario">No binario</option>
       </select>
     </label>
   );

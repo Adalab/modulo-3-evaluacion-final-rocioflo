@@ -8,7 +8,7 @@ function CharactersList({ filteredList, isLoading, filters }) {
   if (isLoading) {
     return (
       <p className="loading-message">
-        Juro solemnemente que estoy llamando a la Api{' '}
+        Juro solemnemente que estoy llamando a la Api.
       </p>
     );
   }

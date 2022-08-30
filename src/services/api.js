@@ -9,7 +9,7 @@ const callToApi = () => {
         return {
           name: character.name,
           species: character.species,
-          gender: character.gender,
+          gender: character.gender === 'male' ? 'masculino' : 'femenino',
           image: character.image || placeholder,
           house: character.house || 'Ninguna',
           status: character.alive === true ? 'aún dando guerra' : 'bajo tierra',
