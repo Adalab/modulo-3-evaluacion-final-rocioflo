@@ -30,9 +30,7 @@ function App() {
     house: 'Gryffindor',
     status: '',
   });
-  const [filteredList, setFilteredList] = useState(
-    characterData.sort((a, b) => a.name.localeCompare(b.name))
-  );
+  const [filteredList, setFilteredList] = useState(characterData);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -40,7 +38,7 @@ function App() {
       setIsLoading(true);
       callToApi().then((data) => {
         setCharacterData(data);
-        setFilteredList(data.sort((a, b) => a.name.localeCompare(b.name)));
+        setFilteredList(data);
         setIsLoading(false);
       });
     }
@@ -87,6 +85,33 @@ function App() {
     setFilteredList(characterData);
   };
 
+  //Organise alphabetically
+
+  console.log(characterData);
+  console.log(filteredList);
+
+  const listOrdering = () => {
+    const firstLetterArray1 = filteredList[0].name
+      .split()
+      .toString()
+      .slice(0, 1);
+    console.log(firstLetterArray1);
+    const firstLetterArray2 = filteredList[1].name
+      .split()
+      .toString()
+      .slice(0, 1);
+    console.log(firstLetterArray2);
+
+    if (firstLetterArray1 > firstLetterArray2) {
+      return console.log('oh no');
+    } else {
+      setFilteredList(
+        filteredList.sort((a, b) => a.name.localeCompare(b.name))
+      );
+    }
+    console.log(filteredList);
+  };
+
   //Characters in detail
 
   const { pathname } = useLocation();
@@ -106,11 +131,13 @@ function App() {
                   handleFilters={handleFilters}
                   filters={filters}
                   handleReset={handleReset}
+                  listOrdering={listOrdering}
                 />
                 <CharactersList
                   filteredList={filteredList}
                   isLoading={isLoading}
                   filters={filters}
+                  listOrdering={listOrdering}
                 />
               </>
             }

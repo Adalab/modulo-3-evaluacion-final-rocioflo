@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function CharactersListItem({ filteredList }) {
+function CharactersListItem({ filteredList, listOrdering }) {
   const renderCharacterList = () => {
+    listOrdering();
     const characterList = filteredList.map((character) => {
       return (
         <Link

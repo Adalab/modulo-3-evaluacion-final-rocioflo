@@ -4,11 +4,11 @@ import '../styles/CharacterList.scss';
 
 import PropTypes from 'prop-types';
 
-function CharactersList({ filteredList, isLoading, filters }) {
+function CharactersList({ filteredList, isLoading, filters, listOrdering }) {
   if (isLoading) {
     return (
       <p className="loading-message">
-        Juro solemnemente que estoy llamando a la Api{' '}
+        Juro solemnemente que estoy llamando a la Api.
       </p>
     );
   }
@@ -30,7 +30,10 @@ function CharactersList({ filteredList, isLoading, filters }) {
   }
   return (
     <ul className="characters-list">
-      <CharactersListItem filteredList={filteredList} />
+      <CharactersListItem
+        filteredList={filteredList}
+        listOrdering={listOrdering}
+      />
     </ul>
   );
 }
