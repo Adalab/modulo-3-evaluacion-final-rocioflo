@@ -125,21 +125,43 @@
   }
 
   & .reset-button {
+    font-family: $mainFont;
     padding: 0.5rem;
     margin-right: 0.5rem;
     height: 2rem;
-    border-radius: 50%;
-    box-shadow: inset -1px -1px 3px 1px gray;
+    background-color: #e2edf0;
+    border-radius: 10px;
+    box-shadow: inset -1px -1px 4px 1px #cbd5d8;
+    border: 2px solid #cbd5d8;
+    position: relative;
+    top: 0.2rem;
 
     &:hover {
       height: 3rem;
       box-shadow: inset -2px -4px 8px 1px $thirdColor;
       background-color: $secondColor;
+      border: 2px solid $thirdColor;
     }
 
     @media all and (min-width: 768px) {
+      height: 2.5rem;
+      font-size: 1.1rem;
+      left: 7.5rem;
+
+      &:hover {
+        width: 5rem;
+      }
+    }
+
+    @media all and (min-width: 1024px) {
       height: 3rem;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
+      left: 0;
+
+      &:hover {
+        height: 4rem;
+        width: 6rem;
+      }
     }
   }
 }

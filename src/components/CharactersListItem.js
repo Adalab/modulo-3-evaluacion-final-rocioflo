@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 function CharactersListItem({ filteredList }) {
   const renderCharacterList = () => {
     const characterList = filteredList.map((character) => {
-      console.log(character.species);
       return (
         <Link
           to={`/characterDetail/${character.id}`}

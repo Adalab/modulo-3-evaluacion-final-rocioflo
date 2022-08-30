@@ -25,7 +25,6 @@ function CharacterDetail({ characterFound, characterData }) {
   }
 
   const characterDetail = characterObjectFound[0];
-  console.log(characterDetail);
 
   let lifeStatusIcon =
     characterDetail.status === 'aún dando guerra' ? (
@@ -104,8 +103,29 @@ function CharacterDetail({ characterFound, characterData }) {
       speciesIcon = <i className="fa-solid fa-gem"></i>;
     }
   };
-
   speciesIconChanger();
+
+  let houseIcon = '';
+
+  const houseIconChanger = () => {
+    if (characterDetail.house === 'Gryffindor') {
+      houseIcon = <i className="fa-solid fa-hippo"></i>;
+    }
+
+    if (characterDetail.house === 'Ravenclaw') {
+      houseIcon = <i className="fa-solid fa-crow"></i>;
+    }
+
+    if (characterDetail.house === 'Hufflepuff') {
+      houseIcon = <i className="fa-solid fa-otter"></i>;
+    }
+
+    if (characterDetail.house === 'Slytherin') {
+      houseIcon = <i className="fa-solid fa-staff-snake"></i>;
+    }
+  };
+
+  houseIconChanger();
 
   return (
     <div className="character-detail-page">
@@ -127,7 +147,9 @@ function CharacterDetail({ characterFound, characterData }) {
             Especie: {characterDetail.species} {speciesIcon}
           </p>
           <p>Género: {characterDetail.gender}</p>
-          <p>Casa de Hogwarts: {characterDetail.house}</p>
+          <p>
+            Casa de Hogwarts: {characterDetail.house} {houseIcon}
+          </p>
         </div>
       </div>
     </div>
