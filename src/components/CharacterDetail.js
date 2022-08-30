@@ -27,6 +27,86 @@ function CharacterDetail({ characterFound, characterData }) {
   const characterDetail = characterObjectFound[0];
   console.log(characterDetail);
 
+  let lifeStatusIcon =
+    characterDetail.status === 'aún dando guerra' ? (
+      <i className="fa-solid fa-heart"></i>
+    ) : (
+      <i className="fa-solid fa-skull"></i>
+    );
+
+  let speciesIcon = '';
+
+  const speciesIconChanger = () => {
+    if (characterDetail.species === 'human') {
+      speciesIcon = <i className="fa-solid fa-person"></i>;
+    }
+
+    if (characterDetail.species === 'half-human') {
+      speciesIcon = <i className="fa-solid fa-user-large"></i>;
+    }
+
+    if (characterDetail.species === 'acromantula') {
+      speciesIcon = <i className="fa-solid fa-spider"></i>;
+    }
+
+    if (characterDetail.species === 'centaur') {
+      speciesIcon = <i className="fa-solid fa-horse"></i>;
+    }
+
+    if (characterDetail.species === 'ghost') {
+      speciesIcon = <i className="fa-solid fa-ghost"></i>;
+    }
+
+    if (characterDetail.species === 'goblin') {
+      speciesIcon = <i className="fa-solid fa-child"></i>;
+    }
+
+    if (characterDetail.species === 'hippogriff') {
+      speciesIcon = <i className="fa-solid fa-cow"></i>;
+    }
+
+    if (characterDetail.species === 'house-elf') {
+      speciesIcon = <i className="fa-solid fa-socks"></i>;
+    }
+
+    if (characterDetail.species === 'werewolf') {
+      speciesIcon = <i className="fa-solid fa-dog"></i>;
+    }
+
+    if (characterDetail.species === 'three-headed dog') {
+      speciesIcon = <i className="fa-solid fa-paw"></i>;
+    }
+
+    if (characterDetail.species === 'giant') {
+      speciesIcon = <i className="fa-solid fa-person-arrow-up-from-line"></i>;
+    }
+
+    if (characterDetail.species === 'owl') {
+      speciesIcon = <i className="fa-solid fa-feather"></i>;
+    }
+
+    if (characterDetail.species === 'half-giant') {
+      speciesIcon = <i className="fa-solid fa-arrows-down-to-people"></i>;
+    }
+    if (characterDetail.species === 'cat') {
+      speciesIcon = <i className="fa-solid fa-cat"></i>;
+    }
+
+    if (characterDetail.species === 'dragon') {
+      speciesIcon = <i className="fa-solid fa-dragon"></i>;
+    }
+
+    if (characterDetail.species === 'poltergeist') {
+      speciesIcon = <i className="fa-solid fa-mask"></i>;
+    }
+
+    if (characterDetail.species === 'vampire') {
+      speciesIcon = <i className="fa-solid fa-gem"></i>;
+    }
+  };
+
+  speciesIconChanger();
+
   return (
     <div className="character-detail-page">
       <Link to="/" className="link-back">
@@ -40,15 +120,15 @@ function CharacterDetail({ characterFound, characterData }) {
         />
         <div className="character-detail-info">
           <h2 className="info-name">{characterDetail.name}</h2>
-          <p>Estatus: {characterDetail.status}</p>
-          <p>Especie: {characterDetail.species}</p>
+          <p>
+            Estatus: {characterDetail.status} {lifeStatusIcon}
+          </p>
+          <p>
+            Especie: {characterDetail.species} {speciesIcon}
+          </p>
           <p>Género: {characterDetail.gender}</p>
           <p>Casa de Hogwarts: {characterDetail.house}</p>
         </div>
-        {/* <img
-          src={require(`../images/${characterDetail.house}.png`)}
-          alt={`${characterDetail.house}'s emblem`}
-        /> */}
       </div>
     </div>
   );

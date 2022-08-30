@@ -11,7 +11,7 @@ const callToApi = () => {
           species: character.species,
           gender: character.gender,
           image: character.image || placeholder,
-          house: character.house || 'none',
+          house: character.house || 'Ninguna',
           status: character.alive === true ? 'aún dando guerra' : 'bajo tierra',
           id: uuidv4(),
         };

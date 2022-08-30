@@ -93,8 +93,6 @@ function App() {
   const routeData = matchPath('/CharacterDetail/:id', pathname);
   const characterFound = routeData !== null ? routeData.params.id : pathname;
 
-  console.log(pathname);
-
   return (
     <div className="App">
       <Header />
