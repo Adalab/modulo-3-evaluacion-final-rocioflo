@@ -16,7 +16,9 @@ function CharactersListItem({ filteredList }) {
               alt={`This is ${character.name}`}
             />
             <p className="character-name">{character.name}</p>
-            <p className="character-species">{character.species}</p>
+            <p className="character-species">
+              {character.species.toUpperCase()}
+            </p>
           </li>
         </Link>
       );

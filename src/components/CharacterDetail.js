@@ -25,7 +25,7 @@ function CharacterDetail({ characterFound, characterData }) {
   return (
     <div className="character-detail-page">
       <Link to="/" className="link-back">
-        Back to list
+        Atrás
       </Link>
       <div className={`character-detail ${characterDetail.house}`}>
         <img
@@ -35,10 +35,10 @@ function CharacterDetail({ characterFound, characterData }) {
         />
         <div className="character-detail-info">
           <h2 className="info-name">{characterDetail.name}</h2>
-          <p>Status: {characterDetail.status}</p>
-          <p>Species: {characterDetail.species}</p>
-          <p>Gender: {characterDetail.gender}</p>
-          <p>Hogwarts House: {characterDetail.house}</p>
+          <p>Estatus: {characterDetail.status}</p>
+          <p>Especie: {characterDetail.species}</p>
+          <p>Género: {characterDetail.gender}</p>
+          <p>Casa de Hogwarts: {characterDetail.house}</p>
         </div>
         {/* <img
           src={require(`../images/${characterDetail.house}.png`)}
