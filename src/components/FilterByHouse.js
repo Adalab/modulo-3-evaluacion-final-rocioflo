@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 function FilterByHouse({ handleFilters, filters }) {
   return (
-    <label className="filter-house-label">
+    <label className="filter-house-label" htmlFor="house">
       Selecciona su casa
       <select
         id="house"
@@ -17,5 +18,21 @@ function FilterByHouse({ handleFilters, filters }) {
     </label>
   );
 }
+
+FilterByHouse.defaultProps = {
+  name: '',
+  species: '',
+  gender: '',
+  house: '',
+  status: '',
+};
+
+FilterByHouse.propTypes = {
+  name: PropTypes.string.isRequired,
+  species: PropTypes.string.isRequired,
+  gender: PropTypes.string.isRequired,
+  house: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+};
 
 export default FilterByHouse;

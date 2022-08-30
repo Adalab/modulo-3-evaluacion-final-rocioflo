@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function CharactersListItem({ filteredList }) {
   const renderCharacterList = () => {
@@ -28,4 +29,13 @@ function CharactersListItem({ filteredList }) {
 
   return renderCharacterList();
 }
+
+CharactersListItem.defaultProps = {
+  filteredList: [],
+};
+
+CharactersListItem.propTypes = {
+  filteredList: PropTypes.array.isRequired,
+};
+
 export default CharactersListItem;

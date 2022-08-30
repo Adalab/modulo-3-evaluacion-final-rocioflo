@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import '../styles/CharacterDetail.scss';
+import placeholder from '../images/placeholder.jpg';
 
 function CharacterDetail({ characterFound, characterData }) {
   const characterObjectFound = characterData.filter((character) => {
@@ -13,14 +15,17 @@ function CharacterDetail({ characterFound, characterData }) {
         <Link to="/" className="link-back">
           Back to list
         </Link>
-        <div className="character-detail">
-          <p>No hay personajes en esa url, pillín</p>
+        <div className="false-url-message">
+          <p className="false-url-text">
+            No hay personajes en esa url, pillín.
+          </p>
         </div>
       </div>
     );
   }
 
   const characterDetail = characterObjectFound[0];
+  console.log(characterDetail);
 
   return (
     <div className="character-detail-page">
@@ -48,5 +53,23 @@ function CharacterDetail({ characterFound, characterData }) {
     </div>
   );
 }
+
+CharacterDetail.defaultProps = {
+  name: '',
+  status: '',
+  species: '',
+  gender: '',
+  house: '',
+  image: placeholder,
+};
+
+CharacterDetail.propTypes = {
+  name: PropTypes.string.isRequired,
+  species: PropTypes.string.isRequired,
+  gender: PropTypes.string.isRequired,
+  house: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 export default CharacterDetail;

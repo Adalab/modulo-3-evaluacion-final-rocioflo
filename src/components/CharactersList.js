@@ -2,6 +2,8 @@ import CharactersListItem from './CharactersListItem';
 
 import '../styles/CharacterList.scss';
 
+import PropTypes from 'prop-types';
+
 function CharactersList({ filteredList, isLoading, filters }) {
   if (isLoading) {
     return (
@@ -32,5 +34,25 @@ function CharactersList({ filteredList, isLoading, filters }) {
     </ul>
   );
 }
+
+CharactersList.defaultProps = {
+  name: '',
+  species: '',
+  gender: '',
+  house: '',
+  status: '',
+  isLoading: true,
+  filteredList: [],
+};
+
+CharactersList.propTypes = {
+  name: PropTypes.string.isRequired,
+  species: PropTypes.string.isRequired,
+  gender: PropTypes.string.isRequired,
+  house: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool,
+  filteredList: PropTypes.array.isRequired,
+};
 
 export default CharactersList;
